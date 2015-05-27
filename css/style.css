@@ -51,13 +51,14 @@ header {
 header h1 {
 	font-size: 3.5em;
 	font-weight: normal;
-	margin: 0 50px;
+	margin: 0 80px;
 	margin-bottom: 30px;
 	font-family: 'Precious';
 }
 header img {
 	display: block;
 	margin: auto;
+	height: 250px;
 }
 .cursive {
 	font-family: 'Rouge Script', cursive;
@@ -78,6 +79,7 @@ nav hr {
 nav a {
 	text-decoration: none;
 	color: #000;
+	display: block;
 }
 nav a:visited {
 	color: #000;
@@ -91,7 +93,6 @@ nav ul li {
 	display: inline-block;
 	position: relative;
 	padding: 1em 18px;
-	cursor: pointer;
 }
 nav ul > li:hover {
 	background: #ebebeb;
@@ -136,6 +137,40 @@ nav ul li ul li a:hover {
 nav .arrow-small {
 	font-size: 0.7em;
 }
+nav .buttons-container {
+	display: none;
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	z-index: 999
+}
+@media (max-width: 672px) {
+	nav ul {
+		display: none;
+	}
+	nav .second {
+		display: none;
+	}
+	nav .buttons-container {
+		display: block;
+	}
+}
+nav #sidebar {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 0px;
+	height: 100vh;
+	background-color: #F7F7F7;
+	z-index: 99;
+	padding-top: 110px;
+	transition: width 0.3s ease;
+}
+@media (min-width: 672px) {
+	nav #sidebar {
+		display: none;
+	}
+}
 section {
 	margin: 0 60px;
 }
@@ -144,6 +179,14 @@ section img {
 	margin-top: 5px;
 	margin-right: 15px;
 	border: 15px solid black;
+}
+@media (max-width: 600px) {
+	section img {
+		margin-bottom: 10px;
+		display: block;
+		float: none;
+		margin: 0 auto;
+	}
 }
 section p {
 	margin: 20px 0;
@@ -156,4 +199,125 @@ address {
 }
 address ul {
 	list-style: none;
+}
+.lines-button {
+  background-color: transparent;
+  border: 0;
+  padding: 2rem 1rem;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.57143rem;
+  /* */
+}
+.lines-button:hover {
+  opacity: 1;
+}
+.lines-button:active {
+  transition: 0;
+}
+.lines {
+  display: inline-block;
+  width: 4rem;
+  height: 0.57143rem;
+  background: #000;
+  border-radius: 0.28571rem;
+  transition: 0.3s;
+  position: relative;
+}
+.lines:before, .lines:after {
+  display: inline-block;
+  width: 4rem;
+  height: 0.57143rem;
+  background: #333;
+  border-radius: 0.28571rem;
+  transition: 0.3s;
+  position: absolute;
+  left: 0;
+  content: '';
+  -webkit-transform-origin: 0.28571rem center;
+  transform-origin: 0.28571rem center;
+}
+.lines:before {
+  top: 1rem;
+}
+.lines:after {
+  top: -1rem;
+}
+
+.lines-button.close {
+  -webkit-transform: scale3d(0.8, 0.8, 0.8);
+  transform: scale3d(0.8, 0.8, 0.8);
+}
+
+.lines-button.arrow.close .lines:before, .lines-button.arrow.close .lines:after {
+  top: 0;
+  width: 2.22222rem;
+}
+.lines-button.arrow.close .lines:before {
+  -webkit-transform: rotate3d(0, 0, 1, 40deg);
+  transform: rotate3d(0, 0, 1, 40deg);
+}
+.lines-button.arrow.close .lines:after {
+  -webkit-transform: rotate3d(0, 0, 1, -40deg);
+  transform: rotate3d(0, 0, 1, -40deg);
+}
+
+.lines-button.arrow-up.close {
+  -webkit-transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg);
+  transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg);
+}
+
+.lines-button.minus.close .lines:before, .lines-button.minus.close .lines:after {
+  -webkit-transform: none;
+  transform: none;
+  top: 0;
+  width: 4rem;
+}
+
+.lines-button.x.close .lines {
+  background: transparent;
+}
+.lines-button.x.close .lines:before, .lines-button.x.close .lines:after {
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  top: 0;
+  width: 4rem;
+}
+.lines-button.x.close .lines:before {
+  -webkit-transform: rotate3d(0, 0, 1, 45deg);
+  transform: rotate3d(0, 0, 1, 45deg);
+}
+.lines-button.x.close .lines:after {
+  -webkit-transform: rotate3d(0, 0, 1, -45deg);
+  transform: rotate3d(0, 0, 1, -45deg);
+}
+
+.lines-button.x2 .lines {
+  transition: background 0.3s 0.5s ease;
+}
+.lines-button.x2 .lines:before, .lines-button.x2 .lines:after {
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  transition: top 0.3s 0.6s ease, -webkit-transform 0.3s ease;
+  transition: top 0.3s 0.6s ease, transform 0.3s ease;
+}
+
+.lines-button.x2.close .lines {
+  transition: background 0.3s 0s ease;
+  background: transparent;
+}
+.lines-button.x2.close .lines:before, .lines-button.x2.close .lines:after {
+  transition: top 0.3s ease, -webkit-transform 0.3s 0.5s ease;
+  transition: top 0.3s ease, transform 0.3s 0.5s ease;
+  top: 0;
+  width: 4rem;
+}
+.lines-button.x2.close .lines:before {
+  -webkit-transform: rotate3d(0, 0, 1, 45deg);
+  transform: rotate3d(0, 0, 1, 45deg);
+}
+.lines-button.x2.close .lines:after {
+  -webkit-transform: rotate3d(0, 0, 1, -45deg);
+  transform: rotate3d(0, 0, 1, -45deg);
 }
