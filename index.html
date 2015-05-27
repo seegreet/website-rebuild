@@ -11,7 +11,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	</head>
 
-	<body>
+	<body id="bodyid">
 
 		<div id="column-wrapper">
 
@@ -24,10 +24,11 @@
 
 				<div class="buttons-container">
 			        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button arrow arrow-left" id="sidebarbutton" onclick="sidebar()">
-			        	<span class="lines"></span>
+			        	<span id="buttonlines" class="lines"></span>
 			        </button>
 			    </div>
 
+			    <div id="overlay"></div>
 			    <div id="sidebar">
 
 			    </div>
@@ -36,13 +37,13 @@
 					<hr>
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li>More about Caspian <span class="arrow-small">&#9660;</span><ul>
+						<li class="dropdown">More about Caspian <span class="arrow-small">&#9660;</span><ul>
 							<li><a href="pedigree.html">Pedigree</a></li>
 							<li><a href="registry.html">Registry</a></li>
 							<li><a href="measuringup.html">Measuring up</a></li>
 						</ul></li>
 						<li><a href="earlyyears.html">Early Years</a></li>
-						<li>Photos <span class="arrow-small">&#9660;</span><ul>
+						<li class="dropdown">Photos <span class="arrow-small">&#9660;</span><ul>
 							<li><a href="photos8w23m.html">8 weeks to 23 months</a></li>
 							<li><a href="photos24m30m.html">24 to 30 months</a></li>
 							<li><a href="photos31m.html">From 31 months</a></li>
@@ -82,26 +83,36 @@
 		</div> <!--column-wrapper-->
 
 
-
+	<script src="external/js/jquery-1.11.3.min.js"></script>
 	<script>
     var anchor = document.querySelectorAll('button');
-    
+    var open = false;
     [].forEach.call(anchor, function(anchor){
-      var open = false;
       anchor.onclick = function(event){
         event.preventDefault();
         if(!open){
           this.classList.add('close');
           open = true;
           document.getElementById("sidebar").style.width = "300px";
+          document.getElementById("overlay").style.display = "block";
         }
         else{
           this.classList.remove('close');
           open = false;
           document.getElementById("sidebar").style.width = "0";
+          document.getElementById("overlay").style.display = "none";
         }
       }
-    }); 
+    });
+    /*document.getElementById('bodyid').onclick = function(e) {
+	    if((e.target != document.getElementById('sidebar')) && (e.target != document.getElementById('sidebarbutton')) && (e.target != document.getElementById('buttonlines'))) {
+
+	      	open = false;
+          	document.getElementById("sidebar").style.width = "0";
+          	document.getElementById("overlay").style.display = "none";
+
+	    }
+	}*/
   </script>
 
 	</body>
