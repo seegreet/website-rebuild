@@ -60,6 +60,14 @@ header img {
 	margin: auto;
 	height: 250px;
 }
+@media (max-width: 550px) {
+	header h1 {
+		font-size: 3em;
+	}
+	header img {
+		height: 200px;
+	}
+}
 .cursive {
 	font-family: 'Rouge Script', cursive;
 }
@@ -181,6 +189,8 @@ nav #sidebar a {
 	font-weight: bold;
 }
 @media (max-width: 550px) {
+	nav #sidebar a {
+		padding: 8px 40px;
 	}
 }
 nav #sidebar > ul {
@@ -231,10 +241,15 @@ section img {
 }
 @media (max-width: 600px) {
 	section img {
+		border: 15px solid black;
+		height: 275px;
 		margin-bottom: 10px;
 		display: block;
 		float: none;
 		margin: 0 auto;
+	}
+	section {
+		margin: 0 20px;
 	}
 }
 section p {
