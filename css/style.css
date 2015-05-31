@@ -76,7 +76,7 @@ nav hr {
 		width: 80vw;
 	}
 }
-nav a {
+nav .container a {
 	text-decoration: none;
 	color: #000;
 	display: block;
@@ -84,22 +84,22 @@ nav a {
 	width: 100%;
 	padding: 1em 18px;
 }
-nav a:visited {
+nav .container a:visited {
 	color: #000;
 }
-nav ul {
+nav .container ul {
 	text-align: left;
 	display: inline;
 	list-style: none;
 }
-nav ul li {
+nav .container ul li {
 	display: inline-block;
 	position: relative;
 }
-nav ul > li:hover {
+nav .container ul > li:hover {
 	background: #ebebeb;
 }
-nav ul li ul {
+nav .container ul li ul {
   position: absolute;
   left: 0;
   top: 50px;
@@ -113,35 +113,35 @@ nav ul li ul {
           transform-origin: 0 0;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 0px 0 rgba(0, 0, 0, 0.12);
 }
-nav ul .dropdown {
+nav .container ul .dropdown {
 	padding: 1em 18px;
 	cursor: pointer;
 }
-nav ul li:hover ul {
+nav .container ul li:hover ul {
 	-webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
 }
-nav ul li ul li {
+nav .container ul li ul li {
 	display: block;
 	background-color: #fff;
 	width: 100%;
 }
-nav ul li:hover ul {
+nav .container ul li:hover ul {
 	display: block;
 	opacity: 1;
 	visibility: visible;
 }
-nav ul li ul li a {
+nav .container ul li ul li a {
 	padding: 1em 18px;
 	width: 100%;
 	display: inline-block;
 	white-space: pre;
 }
-nav ul li ul li a:hover {
+nav .container ul li ul li a:hover {
 	background: #ebebeb;
 }
-nav .arrow-small {
+nav .container .arrow-small {
 	font-size: 0.7em;
 }
 nav .buttons-container {
@@ -150,17 +150,6 @@ nav .buttons-container {
 	top: 20px;
 	left: 20px;
 	z-index: 999
-}
-@media (max-width: 672px) {
-	nav ul {
-		display: none;
-	}
-	nav .second {
-		display: none;
-	}
-	nav .buttons-container {
-		display: block;
-	}
 }
 nav #sidebar {
 	position: fixed;
@@ -172,10 +161,27 @@ nav #sidebar {
 	z-index: 99;
 	padding-top: 110px;
 	transform: translate3d(-300px,0,0);
-	transitiion: transform 300ms ease;
+	transition: transform 300ms ease;
+	text-align: left;
 }
-nav .sidebar-open {
-	
+nav #sidebar ul {
+	list-style: none;
+}
+nav #sidebar li {
+	width: 300px;
+}
+nav #sidebar li:hover {
+	background-color: #E0E0E0;
+}
+nav #sidebar a {
+	display: block;
+	padding: 12px 40px;
+	color: #333;
+	text-decoration: none;
+	font-weight: bold;
+}
+nav #sidebar > ul {
+	padding: 0 0;
 }
 nav #overlay {
 	background: rgba(50,50,50,0.4);
@@ -186,9 +192,29 @@ nav #overlay {
 	width: 100vw;
 	display: none;
 }
-@media (min-width: 672px) {
+@media (max-width: 672px) {
+	nav .container ul {
+		display: none;
+	}
+	nav .second {
+		display: none;
+	}
+	nav .buttons-container {
+		display: block;
+	}
+	nav #sidebar {
+		transform: translate3d(-300px,0,0);
+	}
 	nav #overlay {
 		display: none;
+	}
+}
+@media (min-width: 672px) {
+	nav #sidebar {
+		transform: translate3d(-300px,0,0)!important;
+	}
+	nav #overlay {
+		display: none!important;
 	}
 }
 section {

@@ -8,7 +8,7 @@
 	    <!--<link rel="icon" href="img/favicon.png" type="image/png">-->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Rouge+Script' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 	</head>
 
 	<body id="bodyid">
@@ -30,7 +30,17 @@
 
 			    <div id="overlay"></div>
 			    <div id="sidebar">
-
+			    	<ul>
+			    		<li><a href="index.html">Home</a></li>
+						<li><a href="pedigree.html">Pedigree</a></li>
+						<li><a href="registry.html">Registry</a></li>
+						<li><a href="measuringup.html">Measuring up</a></li>
+						<li><a href="earlyyears.html">Early Years</a></li>
+						<li><a href="photos8w23m.html">Photos 8 weeks to 23 months</a></li>
+						<li><a href="photos24m30m.html">Photos 24 to 30 months</a></li>
+						<li><a href="photos31m.html">Photos from 31 months</a></li>
+						<li><a href="news.html">News</a></li>
+			    	</ul>
 			    </div>
 
 				<div class="container">
@@ -93,13 +103,13 @@
         if(!open){
           this.classList.add('close');
           open = true;
-          document.getElementById("sidebar").style.width = "300px";
+          document.getElementById("sidebar").style.transform = "translate3d(0,0,0)";
           document.getElementById("overlay").style.display = "block";
         }
         else{
           this.classList.remove('close');
           open = false;
-          document.getElementById("sidebar").style.width = "0";
+          document.getElementById("sidebar").style.transform = "translate3d(-300px,0,0)";
           document.getElementById("overlay").style.display = "none";
         }
       }
