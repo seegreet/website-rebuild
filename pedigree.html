@@ -8,10 +8,10 @@
 	    <!--<link rel="icon" href="img/favicon.png" type="image/png">-->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Rouge+Script' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 	</head>
 
-	<body>
+	<body id="bodyid">
 
 		<div id="column-wrapper">
 
@@ -24,25 +24,36 @@
 
 				<div class="buttons-container">
 			        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button arrow arrow-left" id="sidebarbutton" onclick="sidebar()">
-			        	<span class="lines"></span>
+			        	<span id="buttonlines" class="lines"></span>
 			        </button>
 			    </div>
 
+			    <div id="overlay"></div>
 			    <div id="sidebar">
-
+			    	<ul>
+			    		<li><a href="index.html">Home</a></li>
+						<li><a href="pedigree.html">Pedigree</a></li>
+						<li><a href="registry.html">Registry</a></li>
+						<li><a href="measuringup.html">Measuring up</a></li>
+						<li><a href="earlyyears.html">Early Years</a></li>
+						<li><a href="photos8w23m.html">Photos 8 weeks to 23 months</a></li>
+						<li><a href="photos24m30m.html">Photos 24 to 30 months</a></li>
+						<li><a href="photos31m.html">Photos from 31 months</a></li>
+						<li><a href="news.html">News</a></li>
+			    	</ul>
 			    </div>
 
 				<div class="container">
 					<hr>
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li>More about Caspian <span class="arrow-small">&#9660;</span><ul>
+						<li class="dropdown">More about Caspian <span class="arrow-small">&#9660;</span><ul>
 							<li><a href="pedigree.html">Pedigree</a></li>
 							<li><a href="registry.html">Registry</a></li>
 							<li><a href="measuringup.html">Measuring up</a></li>
 						</ul></li>
 						<li><a href="earlyyears.html">Early Years</a></li>
-						<li>Photos <span class="arrow-small">&#9660;</span><ul>
+						<li class="dropdown">Photos <span class="arrow-small">&#9660;</span><ul>
 							<li><a href="photos8w23m.html">8 weeks to 23 months</a></li>
 							<li><a href="photos24m30m.html">24 to 30 months</a></li>
 							<li><a href="photos31m.html">From 31 months</a></li>
@@ -55,8 +66,44 @@
 
 			<section>
 				
-				
+				<h2>Pedigree</h2>
 
+				<div class="container">
+					<table>
+					    <tr>
+					        <td rowspan="8">caspian de lann guic</td>
+					        <td rowspan="4">veig de stephieci</td>
+					        <td rowspan="2"><div>portos de stephieci</td>
+					        <td><div>jeff de stephieci</td>
+					    </tr>
+					    <tr>
+					        <td>mademoiselle de stephieci</td>
+					    </tr>
+					    <tr>
+					        <td rowspan="2"><div>titania de stephieci</td>
+					        <td>rackham de la tour phillippe</td>
+					    </tr>
+					    <tr>
+					        <td><div>louna de stephieci</td>
+					    </tr>
+					    <tr>
+					        <td rowspan="4">telenn-du de jacuedan</td>
+					        <td rowspan="2">miles de stephieci</td>
+					        <td>horn de la fontegude</td>
+					    </tr>
+					    <tr>
+					        <td>louna de stephieci</td>
+					    </tr>
+					    <tr>
+					        <td rowspan="2">pondi de lann guic</td>
+					        <td><div>morvan de lann guic</td>
+					    </tr>
+					    <tr>
+					        <td><div>lann de lan guic</td>
+					    </tr>
+					</table>
+				</div>
+				
 			</section>
 
 			<footer>
@@ -75,26 +122,27 @@
 		</div> <!--column-wrapper-->
 
 
-
+	<script src="external/js/jquery-1.11.3.min.js"></script>
 	<script>
     var anchor = document.querySelectorAll('button');
-    
+    var open = false;
     [].forEach.call(anchor, function(anchor){
-      var open = false;
       anchor.onclick = function(event){
         event.preventDefault();
         if(!open){
           this.classList.add('close');
           open = true;
-          document.getElementById("sidebar").style.width = "300px";
+          document.getElementById("sidebar").style.transform = "translate3d(0,0,0)";
+          document.getElementById("overlay").style.display = "block";
         }
         else{
           this.classList.remove('close');
           open = false;
-          document.getElementById("sidebar").style.width = "0";
+          document.getElementById("sidebar").style.transform = "translate3d(-300px,0,0)";
+          document.getElementById("overlay").style.display = "none";
         }
       }
-    }); 
+    });
   </script>
 
 	</body>

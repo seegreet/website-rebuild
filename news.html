@@ -8,10 +8,10 @@
 	    <!--<link rel="icon" href="img/favicon.png" type="image/png">-->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Rouge+Script' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 	</head>
 
-	<body>
+	<body id="bodyid">
 
 		<div id="column-wrapper">
 
@@ -24,25 +24,36 @@
 
 				<div class="buttons-container">
 			        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button arrow arrow-left" id="sidebarbutton" onclick="sidebar()">
-			        	<span class="lines"></span>
+			        	<span id="buttonlines" class="lines"></span>
 			        </button>
 			    </div>
 
+			    <div id="overlay"></div>
 			    <div id="sidebar">
-
+			    	<ul>
+			    		<li><a href="index.html">Home</a></li>
+						<li><a href="pedigree.html">Pedigree</a></li>
+						<li><a href="registry.html">Registry</a></li>
+						<li><a href="measuringup.html">Measuring up</a></li>
+						<li><a href="earlyyears.html">Early Years</a></li>
+						<li><a href="photos8w23m.html">Photos 8 weeks to 23 months</a></li>
+						<li><a href="photos24m30m.html">Photos 24 to 30 months</a></li>
+						<li><a href="photos31m.html">Photos from 31 months</a></li>
+						<li><a href="news.html">News</a></li>
+			    	</ul>
 			    </div>
 
 				<div class="container">
 					<hr>
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li>More about Caspian <span class="arrow-small">&#9660;</span><ul>
+						<li class="dropdown">More about Caspian <span class="arrow-small">&#9660;</span><ul>
 							<li><a href="pedigree.html">Pedigree</a></li>
 							<li><a href="registry.html">Registry</a></li>
 							<li><a href="measuringup.html">Measuring up</a></li>
 						</ul></li>
 						<li><a href="earlyyears.html">Early Years</a></li>
-						<li>Photos <span class="arrow-small">&#9660;</span><ul>
+						<li class="dropdown">Photos <span class="arrow-small">&#9660;</span><ul>
 							<li><a href="photos8w23m.html">8 weeks to 23 months</a></li>
 							<li><a href="photos24m30m.html">24 to 30 months</a></li>
 							<li><a href="photos31m.html">From 31 months</a></li>
@@ -55,8 +66,13 @@
 
 			<section>
 				
-				
+				<h2>News</h2>
 
+				<p>Updates will be added seasonally. After the move to the new site, only the most recent post has been transferred. Old news can be found <a href="">here</a>.</p>
+
+				<h3>Winter 2013/2014</h3>
+				<p>Caspian has been so very busy as the bee! We are full swing into Agility with one of the founders of Agility here in the USA - Julie Daniels!!! She is just SUPER!!! Cassie loves her and got to spend some time with her at her place while we were on vacation in December/January. He is coming along well and we expect to register for our first agility run later this Spring. Have also decided that Cassie will be retiring from being a stud dog. We are following a protocol which hopefully will help keep the Berger Picard gene pool healthy here in the USA. When too many of one line gets into the gene pool you can end up with what is known as the "Popular Sire Syndrome". Being that the Picard gene pool is still very small we need to make sure we do all that we can to diversify while maintaining all the good qualities. Cassie has had 19 beautiful, healthy puppies with outstanding temperaments. He has achieved the 5% requisite of having his line carried on. BIG Congratulations Caspian!!! One of Caspian's daughter's, (Izanne Aria de la Vie en Rose) was recently on a local television station. On youtube here: Skip to about 17:25 into the program to see her - she is just BEAUTIFUL!!! Spring 2013  Health Note: Cassie will not be neutered unless there is a medical reason.</p>
+				
 			</section>
 
 			<footer>
@@ -75,26 +91,27 @@
 		</div> <!--column-wrapper-->
 
 
-
+	<script src="external/js/jquery-1.11.3.min.js"></script>
 	<script>
     var anchor = document.querySelectorAll('button');
-    
+    var open = false;
     [].forEach.call(anchor, function(anchor){
-      var open = false;
       anchor.onclick = function(event){
         event.preventDefault();
         if(!open){
           this.classList.add('close');
           open = true;
-          document.getElementById("sidebar").style.width = "300px";
+          document.getElementById("sidebar").style.transform = "translate3d(0,0,0)";
+          document.getElementById("overlay").style.display = "block";
         }
         else{
           this.classList.remove('close');
           open = false;
-          document.getElementById("sidebar").style.width = "0";
+          document.getElementById("sidebar").style.transform = "translate3d(-300px,0,0)";
+          document.getElementById("overlay").style.display = "none";
         }
       }
-    }); 
+    });
   </script>
 
 	</body>

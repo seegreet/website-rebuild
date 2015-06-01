@@ -8,10 +8,10 @@
 	    <!--<link rel="icon" href="img/favicon.png" type="image/png">-->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Rouge+Script' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 	</head>
 
-	<body>
+	<body id="bodyid">
 
 		<div id="column-wrapper">
 
@@ -24,25 +24,36 @@
 
 				<div class="buttons-container">
 			        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button arrow arrow-left" id="sidebarbutton" onclick="sidebar()">
-			        	<span class="lines"></span>
+			        	<span id="buttonlines" class="lines"></span>
 			        </button>
 			    </div>
 
+			    <div id="overlay"></div>
 			    <div id="sidebar">
-
+			    	<ul>
+			    		<li><a href="index.html">Home</a></li>
+						<li><a href="pedigree.html">Pedigree</a></li>
+						<li><a href="registry.html">Registry</a></li>
+						<li><a href="measuringup.html">Measuring up</a></li>
+						<li><a href="earlyyears.html">Early Years</a></li>
+						<li><a href="photos8w23m.html">Photos 8 weeks to 23 months</a></li>
+						<li><a href="photos24m30m.html">Photos 24 to 30 months</a></li>
+						<li><a href="photos31m.html">Photos from 31 months</a></li>
+						<li><a href="news.html">News</a></li>
+			    	</ul>
 			    </div>
 
 				<div class="container">
 					<hr>
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li>More about Caspian <span class="arrow-small">&#9660;</span><ul>
+						<li class="dropdown">More about Caspian <span class="arrow-small">&#9660;</span><ul>
 							<li><a href="pedigree.html">Pedigree</a></li>
 							<li><a href="registry.html">Registry</a></li>
 							<li><a href="measuringup.html">Measuring up</a></li>
 						</ul></li>
 						<li><a href="earlyyears.html">Early Years</a></li>
-						<li>Photos <span class="arrow-small">&#9660;</span><ul>
+						<li class="dropdown">Photos <span class="arrow-small">&#9660;</span><ul>
 							<li><a href="photos8w23m.html">8 weeks to 23 months</a></li>
 							<li><a href="photos24m30m.html">24 to 30 months</a></li>
 							<li><a href="photos31m.html">From 31 months</a></li>
@@ -55,8 +66,28 @@
 
 			<section>
 				
-				
+				<h2>Registry</h2>
 
+				<p>Caspian is a member of the following registries:
+					<ul>
+						<li><a href="http://www.akc.org/breeds/berger_picard/">AKC Foundation Stock</a></li>
+						<li><a href="http://www.ukcdogs.com/Web.nsf/WebPages/Home">UKC</a></li>
+						<li><a href="http://www.ckc.ca/en/Default.aspx?tabid=99&amp;BreedCode=BRP">CKC</a></li>
+					</ul>
+				</p>
+					 
+				<p>Pedigree information for Caspian is available at Pawpeds. Just type "Caspian" in the search box. Pawpeds has an international database for Picards. To date there are over 2036 dogs registered. Every dog listed has its full pedigree on file as well as number of offspring that have been registered. It is one of the wonderful tools used by breeders when deciding on a potential mate.</p>
+					 
+				<p>Cassie has his AKC Good Citizen Certificate (CGC) - Now an AKC title. Cassie also passed his therapy dog certification with Therapy Dog International (TDI) and is involved with therapy work, sheep herding, advanced obedience, agility, and will hopefully be learning all about K-9 Nose Work soon!</p>
+				
+				<p>We are also members of the:
+					<ul>
+						<li><a href="http://picards.us/">Berger Picard Club of America</a> &mdash; The official AKC parent Club</li>
+						<li><a href="http://pets.groups.yahoo.com/group/berger-picard/">International Berger Picard Group Forum</a></li>
+						<li><a href="http://groups.yahoo.com/group/Berger_Picards_of_North_America/?yguid=315988087">Berger Picards of North America Forum</a></li>
+					</ul>
+				</p>
+				
 			</section>
 
 			<footer>
@@ -75,26 +106,27 @@
 		</div> <!--column-wrapper-->
 
 
-
+	<script src="external/js/jquery-1.11.3.min.js"></script>
 	<script>
     var anchor = document.querySelectorAll('button');
-    
+    var open = false;
     [].forEach.call(anchor, function(anchor){
-      var open = false;
       anchor.onclick = function(event){
         event.preventDefault();
         if(!open){
           this.classList.add('close');
           open = true;
-          document.getElementById("sidebar").style.width = "300px";
+          document.getElementById("sidebar").style.transform = "translate3d(0,0,0)";
+          document.getElementById("overlay").style.display = "block";
         }
         else{
           this.classList.remove('close');
           open = false;
-          document.getElementById("sidebar").style.width = "0";
+          document.getElementById("sidebar").style.transform = "translate3d(-300px,0,0)";
+          document.getElementById("overlay").style.display = "none";
         }
       }
-    }); 
+    });
   </script>
 
 	</body>

@@ -14,6 +14,7 @@ body {
 	background-image: url("../img/tile_background.png");
     background-repeat: repeat;
     text-shadow: 0 0 1px transparent;
+    overflow-x: hidden;
 }
 #column-wrapper {
 	min-height: 100vh;
@@ -44,6 +45,9 @@ body {
 		width: 100vw;
 		margin-top: 0;
 	}
+}
+.bold {
+	font-weight: bold;
 }
 header {
 	text-align: center;
@@ -157,7 +161,8 @@ nav .buttons-container {
 	position: fixed;
 	top: 20px;
 	left: 20px;
-	z-index: 999
+	z-index: 999;
+	overflow: auto;
 }
 nav #sidebar {
 	position: fixed;
@@ -233,20 +238,66 @@ nav #overlay {
 section {
 	margin: 0 60px;
 }
+section h2 {
+	text-align: center;
+	font-size: 2em;
+	margin: 40px;
+}
+section .container {
+	overflow: auto;
+}
+section table {
+	text-transform: uppercase;
+	border-collapse: collapse;
+}
+section table td {
+	border: 1px solid black;
+	padding: 1%;
+}
+section ul {
+	margin: 0 40px;
+}
 section img {
+	border: 15px solid black;
+}
+section .measuring-up-center img {
+	width: 500px;
+}
+section .head-img {
 	float: left;
 	margin-top: 5px;
 	margin-right: 15px;
 	border: 15px solid black;
 }
+section .center-img {
+	display: block;
+	text-align: center;
+}
+section figcaption {
+	font-family: serif;
+	font-style: italic;
+	margin-top: 4px;
+}
+section .photo-figure {
+	display: inline-block;
+	margin: 10px;
+}
+section .photo-figure img {
+	max-width: 60vw;
+}
+#photo-section {
+	text-align: center;
+}
 @media (max-width: 600px) {
-	section img {
-		border: 15px solid black;
+	section .head-img {
 		height: 275px;
 		margin-bottom: 10px;
 		display: block;
 		float: none;
 		margin: 0 auto;
+	}
+	section .center-img img {
+		height: 200px;
 	}
 	section {
 		margin: 0 20px;
@@ -254,10 +305,10 @@ section img {
 }
 section p {
 	margin: 20px 0;
-	margin-bottom: 50px;
 	line-height: 1.4em
 }
 address {
+	margin-top: 50px;
 	font-size: 10px;
 	text-align: center;
 }
