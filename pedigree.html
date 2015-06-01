@@ -2,19 +2,30 @@
 <html lang="en">
 
 	<head>
+		<!--
+			Author: Stephan Lensky
+			Date: 6/1/2015
+		-->
 		<meta charset="utf-8">
 	    <title>Berger Picard - Caspian de Lann Guic</title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
-	    <link rel="icon" href="img/favicon.png" type="image/png">
+	    
+	    <!--Favicon-->
+	    <link rel="icon" href="favicon.ico" type="image/png">
+
+	    <!--Style-->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!--Google Fonts-->
 		<link href='http://fonts.googleapis.com/css?family=Rouge+Script' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 	</head>
 
 	<body id="bodyid">
 
+		<!--Center Column-->
 		<div id="column-wrapper">
 
+			<!--Page Header-->
 			<header>
 				<h1 class="cursive">Caspian de Lann Guic</h1>
 				<a href="index.html"><img src="img/silhouette.gif"></a>
@@ -22,13 +33,17 @@
 
 			<nav>
 
+				<!--Transformicon Menu/Arrow Icon-->
 				<div class="buttons-container">
 			        <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button arrow arrow-left" id="sidebarbutton" onclick="sidebar()">
 			        	<span id="buttonlines" class="lines"></span>
 			        </button>
 			    </div>
 
+			    <!--Full Screen Translucent Overlay-->
 			    <div id="overlay"></div>
+
+			    <!--Vertical Navigation-->
 			    <div id="sidebar">
 			    	<ul>
 			    		<li><a href="index.html">Home</a></li>
@@ -43,6 +58,7 @@
 			    	</ul>
 			    </div>
 
+			    <!--Default Horizontal Navigation-->
 				<div class="container">
 					<hr>
 					<ul>
@@ -64,6 +80,7 @@
 				</div>
 			</nav>
 
+			<!--Main Content-->
 			<section>
 				
 				<h2>Pedigree</h2>
@@ -106,6 +123,7 @@
 				
 			</section>
 
+			<!--Contact Info-->
 			<footer>
 				<address>
 					<ul>
@@ -123,28 +141,10 @@
 		</div> <!--column-wrapper-->
 
 
-	<script src="external/js/jquery-1.11.3.min.js"></script>
-	<script>
-    var anchor = document.querySelectorAll('button');
-    var open = false;
-    [].forEach.call(anchor, function(anchor){
-      anchor.onclick = function(event){
-        event.preventDefault();
-        if(!open){
-          this.classList.add('close');
-          open = true;
-          document.getElementById("sidebar").style.transform = "translate3d(0,0,0)";
-          document.getElementById("overlay").style.display = "block";
-        }
-        else{
-          this.classList.remove('close');
-          open = false;
-          document.getElementById("sidebar").style.transform = "translate3d(-300px,0,0)";
-          document.getElementById("overlay").style.display = "none";
-        }
-      }
-    });
-  </script>
+		<!--jquery library v1.11.3-->
+		<script src="external/js/jquery-1.11.3.min.js"></script>
+		<!--hidden sidebar navigation controller-->
+		<script src="js/navcontrol.js"></script>
 
 	</body>
 
