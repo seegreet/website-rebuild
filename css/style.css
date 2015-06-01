@@ -176,6 +176,7 @@ nav #sidebar {
 	transform: translate3d(-300px,0,0);
 	transition: transform 300ms ease;
 	text-align: left;
+	overflow: auto;
 }
 nav #sidebar ul {
 	list-style: none;
@@ -273,6 +274,10 @@ section .center-img {
 	display: block;
 	text-align: center;
 }
+section .center-img img {
+	max-height: 500px;
+	max-width: 60vw;
+}
 section figcaption {
 	font-family: serif;
 	font-style: italic;
@@ -295,9 +300,6 @@ section .photo-figure img {
 		display: block;
 		float: none;
 		margin: 0 auto;
-	}
-	section .center-img img {
-		height: 200px;
 	}
 	section {
 		margin: 0 20px;
