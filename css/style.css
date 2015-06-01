@@ -63,6 +63,10 @@ header img {
 	display: block;
 	margin: auto;
 	height: 250px;
+	transition: opacity 0.4s;
+}
+header img:hover {
+	opacity: 0.6;
 }
 @media (max-width: 550px) {
 	header h1 {
